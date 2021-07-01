@@ -24,9 +24,6 @@ func TestEvent_Validate(t *testing.T) {
 
 		multipleTest := []test{
 				{EventTimestamp: "1625053791", EventType: "user_registration", EventContent: "user_id: 1000, user_name: thor", Want: nil},
-				{EventTimestamp: "", EventType: "user_registration", EventContent: "user_id: 1000, user_name: thor", Want: entity.ErrInvalidEntity},
-				{EventTimestamp: "1625053791", EventType: "", EventContent: "user_id: 1000, user_name: thor", Want: entity.ErrInvalidEntity},
-				{EventTimestamp: "1625053791", EventType: "user_registration", EventContent: "", Want: entity.ErrInvalidEntity},
 		}
 
 		for _, mt := range multipleTest {

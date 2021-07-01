@@ -1,5 +1,7 @@
 package entity
 
+import "gopkg.in/go-playground/validator.v9"
+
 type Event struct {
 		EventTimestamp string `json:"event_timestamp" validate:"required"`
 		EventType      string `json:"event_type" validate:"required"`
@@ -24,8 +26,11 @@ func NewEvent(ts string, etype string, content string) (*Event, error) {
 }
 
 func (e *Event) Validate() error {
-		if e.EventTimestamp == "" || e.EventType == "" || e.EventContent == "" {
-				return ErrInvalidEntity
+
+		v := validator.New()
+		if err := v.Struct(e);err != nil {
+				errs := err.(validator.ValidationErrors)
+				return errs
 		}
 		return nil
 }
