@@ -3,9 +3,9 @@
 API uses unix epoch ('from' and 'to' params) as timestamps.
 
 **API endpoints**:
-1. GET /api/v1/events/type:<type>
-2. GET /api/v1/events/from:<from>/to:<to>
-3. GET /api/v1/events/type:<type>/from:<from>/to:<to>
+1. GET /api/v1/events/type:\<type\>
+2. GET /api/v1/events/from:\<from\>/to:\<to\>
+3. GET /api/v1/events/type:\<type\>/from:\<from\>/to:\<to\>
 4. POST /api/v1/event
 
 **Start environment**: docker-compose up -d
