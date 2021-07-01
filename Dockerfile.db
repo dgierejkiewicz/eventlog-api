@@ -1,0 +1,2 @@
+FROM timescale/timescaledb:1.7.2-pg11
+ADD ./schema.sql /docker-entrypoint-initdb.d

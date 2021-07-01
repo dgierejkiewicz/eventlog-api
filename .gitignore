@@ -1,0 +1,7 @@
+.idea
+.vscode
+.history
+.env
+.env.*
+tmp
+.tmp

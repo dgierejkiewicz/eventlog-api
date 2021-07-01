@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+
+  pgsql:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    environment:
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=eventlog
+      - POSTGRES_PASSWORD=eventlog
+      - POSTGRES_DB=eventlog
+    restart: always
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+    networks:
+      - app
+    container_name: db
+
+  eventlog:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=eventlog
+      - POSTGRES_PASSWORD=eventlog
+      - POSTGRES_DB=eventlog
+      - POSTGRES_HOST=pgsql
+    restart: always
+    depends_on:
+      - pgsql
+    ports:
+      - "3000:3000"
+    networks:
+      - app
+    container_name: eventlog
+
+networks:
+  app:
