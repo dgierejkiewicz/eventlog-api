@@ -18,4 +18,4 @@ API uses unix epoch ('from' and 'to' params) as timestamps.
 4. Add event example: curl --header "Content-Type: application/json" --request POST --data '{"event_timestamp":"1625053791","event_type":"user_logout","event_content":"Test content for user logout"}' localhost:3000/api/v1/event
 
 
-TODO: add mocks and tests
+_TODO: add mocks and tests_
