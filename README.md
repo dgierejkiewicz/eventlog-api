@@ -1,6 +1,6 @@
 # Event log API
 
-API uses timestamps as unix epoch (<from> and <to> params).
+API uses unix epoch (<from> and <to> params) as timestamps.
 
 **API endpoints**:
 1. GET /api/v1/events/type:<type>
